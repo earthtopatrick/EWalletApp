@@ -13,6 +13,10 @@ import java.awt.event.*;
 import javax.swing.JFrame;
 
 public class EWalletApp {
+	
+	public static JFrame frame;
+	public static JTextField user;
+	public static JTextField pass;
 
 	public static void main(String[] args) {
 
@@ -22,9 +26,13 @@ public class EWalletApp {
 
 	public static void login() {
 
-		JFrame frame = new JFrame("Login");
-		frame.setSize(400, 400);
-		frame.setResizable(true);
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Login");
+		frame.setPreferredSize(new Dimension(400, 400));
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 		JLabel labelOne, labelTwo;
 
 		labelOne = new JLabel("Username");
@@ -33,10 +41,10 @@ public class EWalletApp {
 		labelTwo = new JLabel("Password");
 		labelTwo.setBounds(30, 50, 100, 30);
 
-		JTextField user = new JTextField();
+		user = new JTextField();
 		user.setBounds(110, 15, 200, 30);
 
-		JTextField pass = new JPasswordField();
+		pass = new JPasswordField();
 		pass.setBounds(110, 50, 200, 30);
 
 		JButton loginButton = new JButton("Login");
@@ -45,9 +53,11 @@ public class EWalletApp {
 	   loginButton.addActionListener(new ActionListener() {
 		 
 		   public void actionPerformed(ActionEvent e){ 
-			   
+			   	
 		        String username = user.getText(); 
 		        String password = pass.getText(); 
+		        
+		        //final JFrame frame = new JFrame("Login");
 		         
 		        if(username.equals("")) //If username is null
 		        {

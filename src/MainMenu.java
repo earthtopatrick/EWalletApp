@@ -3,8 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
-import java.awt.FlowLayout;
 public class MainMenu implements ActionListener{
 
  JFrame frame = new JFrame();
@@ -75,7 +73,7 @@ public class MainMenu implements ActionListener{
   
   
  
-  
+  frame.setLayout(null);
   frame.add(label);
   frame.add(currentBalance);
   frame.add(CanadianDollar);
@@ -89,15 +87,16 @@ public class MainMenu implements ActionListener{
   frame.add(printExpenseReport);
   frame.add(printIncomeReport);
   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-  frame.setSize(400,400);
-  frame.setLayout(null);
-  frame.setVisible(true);
+  frame.setPreferredSize(new Dimension(1000, 600));
   frame.pack();
+  frame.setLocationRelativeTo(null);
+  frame.setVisible(true);
+
  }
  
  
  
- @Override
+ //@Override
  public void actionPerformed(ActionEvent e) { //consider renaming to "CanadianDollarButton or CanadianDollarBtn"
 	 if(e.getSource() == CanadianDollar) { //To convert USD to CAD, multiply given value in USD by 1.29
 		String amount = currentBalance.getText();
