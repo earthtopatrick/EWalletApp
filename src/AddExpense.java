@@ -12,9 +12,9 @@ public class AddExpense implements ActionListener {
 	AddExpense(){
 		 
 		  frame.setTitle("Add an Expense");
-		  frame.setSize(400,400);
+		  frame.setSize(401,401);
 		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		  frame.setSize(400,400);
+		  frame.setSize(401,401);
 		  frame.setLayout(null);
 		  frame.setVisible(true);
 		  frame.pack();
