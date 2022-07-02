@@ -1,4 +1,8 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public interface Expenser {
 public User userAtHand= null;
@@ -25,8 +29,30 @@ public User userAtHand= null;
 	public Currency convertForeignCurrency(Currency C, double amount);
 	//	As a user I would like to load multiple expenses from an external file all at once returning true if loaded successfully and false otherwise 
 	public boolean loadExpenseFile(String filePath); 
-	//	As a user I would like to load multiple income from an external file all at once returning true if loaded successfully and false otherwise 
-	public boolean loadIncomeFile(String filePath); 	
+	
+	/**	As a user I would like to load multiple income from an external file 
+	 * all at once returning true if loaded successfully and false otherwise.
+	 * @param filePath
+	 * @return
+	 * @throws IOException 
+	 */
+	public static boolean loadIncomeFile(String filePath) throws IOException {
+		
+		Scanner scanner = new Scanner(System.in);
+		FileInputStream fileinputstream = null;
+		
+		try {
+			fileinputstream = new FileInputStream(filePath);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			scanner.close();
+			return false;
+		}
+		scanner.close();
+		fileinputstream.close();
+		return true;
+	}
+	
 	// As a user I would like to provide an item and a price and get an estimate in number of months needed to save up to buy this item. (based on current monthly saving. 
 	public int whenCanIBuy(String itemname,double  price);
 	// updates monthly savings based on latest added income and expenses. This is an internal function not called by the users.  Bonus: what is the most efficient way to call it (when?)? 
