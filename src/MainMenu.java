@@ -17,6 +17,7 @@ public class MainMenu implements ActionListener{
  JButton CanadianDollar = new JButton ("Canadian Dollars (CAD)");
  JButton AustralianDollar  = new JButton ("Australian Dollars (AUD)");
  JTextField currentBalance = new JTextField();
+ JTextField newBalance = new JTextField();
  MainMenu(){
 	 
   frame.setTitle("Main Menu");
@@ -25,6 +26,10 @@ public class MainMenu implements ActionListener{
   JLabel label;
   label = new JLabel("Current Balance");
   label.setBounds(30, 15, 100, 30);
+  
+  JLabel label2;
+  label2 = new JLabel("New Balance");
+  label2.setBounds(30, 15, 100, 30);
   
   
   currentBalance.setBounds(135, 15, 200, 30);
@@ -108,4 +113,6 @@ public class MainMenu implements ActionListener{
 	 
  }
 }
+
+//Add commment for trial
 
