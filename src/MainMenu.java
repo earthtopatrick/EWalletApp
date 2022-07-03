@@ -4,12 +4,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 public class MainMenu implements ActionListener{
+	public int expenses;
+	private int income;
 
  JFrame frame = new JFrame();
  JButton addExpense = new JButton("Add an Expense");
  JButton addMonthlyIncome = new JButton ("Add Monthly Income");
  JButton printExpenseReport = new JButton ("Print Expense Report");
  JButton printIncomeReport = new JButton ("Print Income Report");
+ JButton updateMonthlySaving = new JButton("Print Monthly Savings");
  JButton Dollar = new JButton ("Dollars (USD)");
  JButton Euro = new JButton("Euros (EUR)");
  JButton Yen = new JButton ("Yen (JPY)");
@@ -60,11 +63,25 @@ public class MainMenu implements ActionListener{
   
   addExpense.setBounds(260,180,200,40);
   addExpense.setFocusable(false);
-  addExpense.addActionListener(this);
-  
+  addExpense.addActionListener(new ActionListener() {
+	  public void actionPerformed(ActionEvent h) {
+	  int expense = 5; //USER INPUT HERE;
+	  					//currently when addExpense Button clicked
+						//will add 5 to user expense by calling setExpenses
+	  setExpenses(expense); 
+	  }
+});
+
   addMonthlyIncome.setBounds(480,180,200,40);
   addMonthlyIncome.setFocusable(false);
-  addMonthlyIncome.addActionListener(this);
+  addMonthlyIncome.addActionListener(new ActionListener(){
+	  public void actionPerformed(ActionEvent g) {
+		  int incomeAmount = 10; //USER INPUT HERE;
+		  						//currently when addMonthlyIncome Button clicked
+		  						//will add 10 to user income by calling setIncome
+		  setIncome(incomeAmount);
+	  }
+  });
   
   printExpenseReport.setBounds(260,240,200,40);
   printExpenseReport.setFocusable(false);
@@ -74,9 +91,17 @@ public class MainMenu implements ActionListener{
   printIncomeReport.setFocusable(false);
   printIncomeReport.addActionListener(this);
   
-  
-  
-  
+  updateMonthlySaving.setBounds(370, 300, 200, 40);
+  updateMonthlySaving.setFocusable(false);
+  updateMonthlySaving.addActionListener(new ActionListener(){
+	  public void actionPerformed(ActionEvent f) {
+		  
+		  System.out.println(updateSaving());//calls updateSaving method in MainMenu class
+		  										//int of total savings is returned and printed to console
+	  }
+  });
+ 
+ 
  
   frame.setLayout(null);
   frame.add(label);
@@ -91,6 +116,7 @@ public class MainMenu implements ActionListener{
   frame.add(addMonthlyIncome);
   frame.add(printExpenseReport);
   frame.add(printIncomeReport);
+  frame.add(updateMonthlySaving);
   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   frame.setPreferredSize(new Dimension(1000, 600));
   frame.pack();
@@ -112,6 +138,37 @@ public class MainMenu implements ActionListener{
 	 }
 	 
  }
+ 
+ public void setExpenses(int expense) {//sets user expenses; call every time new expense added
+	 expenses += expense;
+ }
+ 
+ public void setIncome(int incomeAmount) {//sets user income; call every time new income added
+	 income += incomeAmount;
+ }
+ 
+ public int getExpenses() {//returns user expenses
+	 return expenses;
+ }
+
+ 
+ public int getIncome() {//returns user income
+	 return income;
+ }
+ 
+ public int updateSaving() {//updates and returns user savings
+	 
+	 updateMonthlySavings bloop = new updateMonthlySavings();//funny ref name lol
+	 
+	 int totSavings = bloop.updateSavings(getExpenses(), getIncome());//calls updateSavings method in updateMonthlySavings class
+	 																	//uses getExpenses,Income methods in Main Menu
+	 																	//to update user savings and returns value
+	 
+	 return totSavings;
+	 
+ }
+ 
+ 
 }
 
 //Add commment for trial
