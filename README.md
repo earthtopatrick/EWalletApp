@@ -13,6 +13,10 @@ Software Developer	Bryan
 
 Trello Board @ https://trello.com/b/5FYTFnjM/ewallet
 
+Git Main Repository https://github.com/earthtopatrick/EWalletApp
+Git Issues and board https://github.com/SChurch89/FerrisSE-Group1-Ewallet-SENG210/issues 
+
+
 
 
 
